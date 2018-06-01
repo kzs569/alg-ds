@@ -1,0 +1,7 @@
+
+Tsquid:UnusedPrivateMethod",Remove this unused private "getNext" method.(¤È‚õúÿÿÿÿ
+Msquid:S1197"8Move the array designator from the variable to the type.(ó–Ý¯
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÄÕ·
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ãì¶øúÿÿÿÿ
+rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Ì§€ëøÿÿÿÿ
