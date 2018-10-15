@@ -1,3 +1,0 @@
-[scrapy]
-settings = Scrapy.settings
-
