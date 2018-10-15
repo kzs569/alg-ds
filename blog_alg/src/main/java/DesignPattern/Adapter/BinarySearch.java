@@ -3,12 +3,12 @@ package DesignPattern.Adapter;
 import java.util.Scanner;
 
 public class BinarySearch implements DataOperation {
-    @Override
+
     public void sort(int[] array) {
 
     }
 
-    @Override
+
     public void search(int[] array) {
         QuickSort sort = new QuickSort();
         sort.sort(array);
