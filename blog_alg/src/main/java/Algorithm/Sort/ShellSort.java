@@ -1,6 +1,6 @@
 package Algorithm.Sort;
 
-public class ShellSort extends Sort.Sort {
+public class ShellSort extends Sort {
     private int[] steps = {1, 5, 19, 41, 109};
 
     @Override
@@ -28,7 +28,7 @@ public class ShellSort extends Sort.Sort {
 
     public static void main(String[] args) {
         Integer arr[] = new Integer[]{ 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62 };
-        Sort.ShellSort sort = new Sort.ShellSort();
+        ShellSort sort = new ShellSort();
         sort.sort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);

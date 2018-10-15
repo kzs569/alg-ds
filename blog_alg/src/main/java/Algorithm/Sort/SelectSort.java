@@ -1,6 +1,6 @@
 package Algorithm.Sort;
 
-public class SelectSort extends Sort.Sort {
+public class SelectSort extends Sort {
     @Override
     public void sort(Comparable[] a){
         if(a.length == 0){

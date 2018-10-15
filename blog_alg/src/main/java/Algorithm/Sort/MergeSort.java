@@ -1,7 +1,6 @@
 package Algorithm.Sort;
 
-public class MergeSort extends Sort.Sort {
-    @Override
+public class MergeSort extends Sort {
     public void sort(Comparable[] a) {
         Comparable[] ret = new Comparable[a.length];
         merge(a,ret,0,a.length-1);

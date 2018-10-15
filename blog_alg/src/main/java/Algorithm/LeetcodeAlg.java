@@ -106,24 +106,24 @@ public class LeetcodeAlg {
         }
     }
 
-    public static List<List<Integer>> twoSum(int[] nums, int target) {
-        List<List<Integer>> ret = new LinkedList<List<Integer>>();
-        int[] transnums = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            transnums[i] = target - nums[i];
-        }
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < transnums.length; j++) {
-                if(nums[i] == transnums[j]){
-                    List<Integer> t = new LinkedList<Integer>();
-                    t.add(nums[i]);
-                    t.add(nums[j]);
-                    ret.add(t);
-                }
-            }
-        }
-        return ret;
-    }
+//    public static List<List<Integer>> twoSum(int[] nums, int target) {
+//        List<List<Integer>> ret = new LinkedList<List<Integer>>();
+//        int[] transnums = new int[nums.length];
+//        for (int i = 0; i < nums.length; i++) {
+//            transnums[i] = target - nums[i];
+//        }
+//        for (int i = 0; i < nums.length; i++) {
+//            for (int j = i + 1; j < transnums.length; j++) {
+//                if(nums[i] == transnums[j]){
+//                    List<Integer> t = new LinkedList<Integer>();
+//                    t.add(nums[i]);
+//                    t.add(nums[j]);
+//                    ret.add(t);
+//                }
+//            }
+//        }
+//        return ret;
+//    }
     
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
@@ -187,7 +187,65 @@ public class LeetcodeAlg {
         System.out.println("");
     }
 
+    public static int[] twoSum(int[] numbers, int target) {
+        int[] ret = new int[2];
+        HashMap<Integer, Integer> map = new HashMap <Integer, Integer>();
+        for (int i = 0; i < numbers.length; i++) {
+            if(!map.containsKey(numbers[i])){
+                map.put(target - numbers[i], i);
+            }else{
+                ret[0] = map.get(numbers[i]) + 1;
+                ret[1] = i + 1;
+                return ret;
+            }
+        }
+        return null;
+    }
+
+    public static void runMedium(int[] a, int[] b){
+        System.out.println(medium(a,b,0,a.length - 1,0, b.length - 1));
+    }
+
+    public static int medium(int[] a, int[] b, int as, int ae, int bs, int be){
+        int m1 = (ae + as)/2;
+        int m2 = (be + bs)/2;
+        System.out.println(String.valueOf(as) + String.valueOf(ae) + String.valueOf(bs) + String.valueOf(be) );
+
+        if(as >= ae || bs >= be){
+            return a[as] < b[bs] ? a[as]: b[bs];
+        }
+
+        if (a[m1] == b[m2]) {
+            return a[m1];
+        } else if (a[m1] > b[m2]) {
+            if ((as + ae)%2 == 0) {
+                medium(a, b, as, m1, m2, be);
+            }else{
+                medium(a, b, as, m1 + 1, m2, be);
+            }
+        } else {
+            if ((as + ae)%2 == 0) {
+                medium(a, b, m1, ae, bs, m2);
+            }else{
+                medium(a, b, m1 + 1, ae, bs, m2);
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
+
+        int[] a = new int[]{2,7,11,15,17};
+        int[] b = new int[]{1,3,4,5,9};
+
+        runMedium(a, b);
+//        int target = 9;
+//
+//        int[] ret = twoSum(numbers, target);
+//
+//        for (int i = 0; i < ret.length; i++) {
+//            System.out.println(ret[i]);
+//        }
         //atoi() test
 //        String[] strs = new String[]{"","123456789","abc","-123","010","+010023","2147483647","-2147483648",
 //                "   -2147483649","23ef8","+4488","\\n\\r\\t\\v 123\\n\\r\\t","0+123"};

@@ -50,7 +50,6 @@ public class Stack<T> implements Iterable<T> {
         stack = temp;
     }
 
-    @Override
     public Iterator<T> iterator() {
         return new ReverseArrayIterator();
     }
@@ -58,17 +57,14 @@ public class Stack<T> implements Iterable<T> {
     private class ReverseArrayIterator implements Iterator<T>{
         private int i = number;
 
-        @Override
         public boolean hasNext() {
             return i > 0;
         }
 
-        @Override
         public T next() {
             return stack[--i];
         }
 
-        @Override
         public void remove() {
 
         }

@@ -1,7 +1,6 @@
 package Algorithm.Sort;
 
-public class BucketSort extends Sort.Sort {
-    @Override
+public class BucketSort extends Sort {
     public void sort(Comparable[] arr) {
 //        Comparable max=arr[0],min=arr[0];
 //        for (Comparable a:arr) {

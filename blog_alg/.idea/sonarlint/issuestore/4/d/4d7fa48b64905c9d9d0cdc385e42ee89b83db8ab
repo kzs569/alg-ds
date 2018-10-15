@@ -1,27 +1,0 @@
-
-8squid:S1659"#Declare "start" on a separate line.(ê£­¦
-6squid:S1659"!Declare "len" on a separate line.(ê£­¦
-9squid:S1659"Declare "k" on a separate line.(»ÏÖÜùÿÿÿÿ
-Gsquid:S3985"2Remove this unused private "QueueFromStack" class.(‹§‹ö
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŞíŠ¸úÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‘ÓÄßüÿÿÿÿ
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¶¾ÄÁûÿÿÿÿ
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒ®Êœ
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–ƒ—
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(İ¥ªÛûÿÿÿÿ
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÜÓ°¢
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Âôîë
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îáËü
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ëü°½
-`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(÷µ€¨
-esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¡¬ò”úÿÿÿÿ
-R
-squid:S106"9Replace this use of System.out or System.err by a logger.(ŞÒ—üÿÿÿÿ
-zsquid:S1488"`Immediately return this expression instead of assigning it to the temporary variable "shortStr".(ª÷óùÿÿÿÿ
-gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(÷¸¶
-asquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(®íÎùÿÿÿÿ
-rsquid:S00120"WRename this package name to match the regular expression '^[a-z]+(\.[a-z][a-z0-9]*)*$'.(Ì§€ëøÿÿÿÿ
-jsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Ä­Çùşÿÿÿÿ
-jsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(›¤ÙÀıÿÿÿÿ
-jsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(Ä­Çùşÿÿÿÿ
-jsquid:S1149"PReplace the synchronized class "Stack" by an unsynchronized one such as "Deque".(›¤ÙÀıÿÿÿÿ

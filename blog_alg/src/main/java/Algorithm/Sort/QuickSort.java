@@ -1,6 +1,6 @@
 package Algorithm.Sort;
 
-public class QuickSort extends Sort.Sort {
+public class QuickSort extends Sort {
     @Override
     public void sort(Comparable[] a) {
         quicksort(a,0,a.length - 1);
@@ -34,7 +34,7 @@ public class QuickSort extends Sort.Sort {
 
     public static void main(String[] args) {
         Integer arr[] = new Integer[]{ 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62 };
-        Sort.QuickSort sort = new Sort.QuickSort();
+        QuickSort sort = new QuickSort();
         sort.sort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);

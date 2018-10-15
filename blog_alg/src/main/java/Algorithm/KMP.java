@@ -1,7 +1,7 @@
 package Algorithm;
 
 public class KMP {
-    private void getNext(String pattern, int next[]) {
+    private static void getNext(String pattern, int next[]) {
         int j = 0;
         int k = -1;
         int len = pattern.length();
@@ -21,7 +21,7 @@ public class KMP {
             }
         }
     }
-    private int[] getNext(char[] p) {
+    private static int[] getNext(char[] p) {
         // 已知next[j] = k,利用递归的思想求出next[j+1]的值
         // 如果已知next[j] = k,如何求出next[j+1]呢?具体算法如下:
         // 1. 如果p[j] = p[k], 则next[j+1] = next[k] + 1;
@@ -51,15 +51,19 @@ public class KMP {
         return next;
     }
 
-    int kmp(String s, String pattern) {
+    private static int kmp(String s, String pattern) {
         int i = 0;
         int j = 0;
         int slen = s.length();
         int plen = pattern.length();
 
-        int[] next = new int[plen];
 
-        getNext(pattern, next);
+
+        int[] next = getNext(pattern.toCharArray());
+
+        for (int k = 0; k < s.length(); k++) {
+            System.out.print(next[k] + " ");
+        }
 
         while (i < slen && j < plen) {
 
@@ -84,9 +88,8 @@ public class KMP {
     }
 
     public static void main(String[] args) {
-        KMP kmp = new KMP();
         String str = "abababdafdasabcfdfeaba";
         String pattern = "abc";
-        System.out.println(kmp.kmp(str, pattern));
+        System.out.println(kmp(str, pattern));
     }
 }

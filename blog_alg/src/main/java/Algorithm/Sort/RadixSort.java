@@ -53,7 +53,7 @@ public class RadixSort {
 
     public static void main(String[] args) {
         int arr[] = new int[]{ 61, 17, 29, 22, 34, 60, 72, 21, 50, 1, 62, 123, 456687, 123478, 45678111 };
-        Sort.RadixSort sort = new Sort.RadixSort();
+        RadixSort sort = new RadixSort();
         sort.sort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
