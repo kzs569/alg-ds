@@ -6,25 +6,25 @@ import java.util.Queue;
 
 public class PrimeFactorization {
 
-    Queue<Integer> primeQueue;
+    Queue <Integer> primeQueue;
     int number;
 
     public PrimeFactorization(int n) {
         number = n;
         Eratosthenes era = new Eratosthenes(n);
-        primeQueue = (LinkedList)era.getPrimeList();
+        primeQueue = (LinkedList) era.getPrimeList();
     }
 
-    public List<Integer> getPrimeFactorization(){
+    public List <Integer> getPrimeFactorization() {
 
-        List<Integer> ret = new LinkedList <Integer>();
+        List <Integer> ret = new LinkedList <Integer>();
 
-        while(number!=1){
+        while (number != 1) {
             int prime = primeQueue.element();
-            if(number%prime == 0){
-                number = number/prime;
+            if (number % prime == 0) {
+                number = number / prime;
                 ret.add(prime);
-            }else{
+            } else {
                 primeQueue.poll();
             }
         }
@@ -34,7 +34,7 @@ public class PrimeFactorization {
 
     public static void main(String[] args) {
         PrimeFactorization pf = new PrimeFactorization(256);
-        List<Integer> list = pf.getPrimeFactorization();
+        List <Integer> list = pf.getPrimeFactorization();
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
