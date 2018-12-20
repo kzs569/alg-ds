@@ -3,7 +3,7 @@ package DataStructure.Tree;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BinaryTreeNode<T extends Comparable<? super T>>{
+public class BinaryTreeNode<T extends Comparable<? super T>>implements Comparable<BinaryTreeNode<T>>{
     private T data;
     private BinaryTreeNode<T> leftchild;
     private BinaryTreeNode<T> rightchild;
@@ -94,5 +94,14 @@ public class BinaryTreeNode<T extends Comparable<? super T>>{
             nodelist.add(this.rightchild);
         }
         return nodelist;
+    }
+
+    @Override
+    public int compareTo(BinaryTreeNode<T> o){
+        if (this.data.compareTo(o.data) < 0)
+            return -1;
+        if (this.data.compareTo(o.data) > 0)
+            return 1;
+        return 0;
     }
 }

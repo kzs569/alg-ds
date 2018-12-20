@@ -1,88 +1,98 @@
 package Algorithm;
 
 public class KMP {
-    private static void getNext(String pattern, int next[]) {
-        int j = 0;
-        int k = -1;
-        int len = pattern.length();
-        next[0] = -1;
+//    private static void getNext(String pattern, int next[]) {
+//        int j = 0;
+//        int k = -1;
+//        int len = pattern.length();
+//        next[0] = -1;
+//
+//        while (j < len - 1) {
+//            if (k == -1 || pattern.charAt(k) == pattern.charAt(j)) {
+//
+//                j++;
+//                k++;
+//                next[j] = k;
+//            } else {
+//
+//                // 比较到第K个字符，说明p[0——k-1]字符串和p[j-k——j-1]字符串相等，而next[k]表示
+//                // p[0——k-1]的前缀和后缀的最长共有长度，所接下来可以直接比较p[next[k]]和p[j]
+//                k = next[k];
+//            }
+//        }
+//    }
 
-        while (j < len - 1) {
-            if (k == -1 || pattern.charAt(k) == pattern.charAt(j)) {
+    private static int[] getNext(String pattern) {
 
-                j++;
-                k++;
-                next[j] = k;
-            } else {
-
-                // 比较到第K个字符，说明p[0——k-1]字符串和p[j-k——j-1]字符串相等，而next[k]表示
-                // p[0——k-1]的前缀和后缀的最长共有长度，所接下来可以直接比较p[next[k]]和p[j]
-                k = next[k];
-            }
+        if(pattern == null){
+            return null;
         }
-    }
-    private static int[] getNext(char[] p) {
-        // 已知next[j] = k,利用递归的思想求出next[j+1]的值
-        // 如果已知next[j] = k,如何求出next[j+1]呢?具体算法如下:
-        // 1. 如果p[j] = p[k], 则next[j+1] = next[k] + 1;
-        // 2. 如果p[j] != p[k], 则令k=next[k],如果此时p[j]==p[k],则next[j+1]=k+1,
-        // 如果不相等,则继续递归前缀索引,令 k=next[k],继续判断,直至k=-1(即k=next[0])或者p[j]=p[k]为止
-        int pLen = p.length;
-        int[] next = new int[pLen];
+
+        char[] p = pattern.toCharArray();
+        int[] next = new int[p.length];
+
         int k = -1;
         int j = 0;
         next[0] = -1; // next数组中next[0]为-1
-        while (j < pLen - 1) {
-            if (k == -1 || p[j] == p[k]) {
-                k++;
-                j++;
-                // 修改next数组求法
-                if (p[j] != p[k]) {
-                    next[j] = k;// KMPStringMatcher中只有这一行
-                } else {
-                    // 不能出现p[j] = p[next[j]],所以如果出现这种情况则继续递归,如 k = next[k],
-                    // k = next[[next[k]]
-                    next[j] = next[k];
-                }
-            }else{
+
+        while(j < p.length - 1){
+            while(k >= 0 || p[j] != p[k]){
                 k = next[k];
             }
+            j++;
+            k++;
+            if(j == p.length)
+                break;
+            if(p[j]==p[k]){
+                next[j] = next[k];
+            }else{
+                next[j] = k;
+            }
         }
+
+//        while (j < p.length - 1) {
+//            if (k == -1 || p[j] == p[k]) {
+//                k++;
+//                j++;
+//                // 修改next数组求法
+//                if (p[j] != p[k]) {
+//                    next[j] = k;// KMPStringMatcher中只有这一行
+//                } else {
+//                    // 不能出现p[j] = p[next[j]],所以如果出现这种情况则继续递归,如 k = next[k],
+//                    // k = next[[next[k]]
+//                    next[j] = next[k];
+//                }
+//            } else {
+//                k = next[k];
+//            }
+//        }
         return next;
     }
 
-    private static int kmp(String s, String pattern) {
-        int i = 0;
-        int j = 0;
-        int slen = s.length();
-        int plen = pattern.length();
-
-
-
-        int[] next = getNext(pattern.toCharArray());
-
-        for (int k = 0; k < s.length(); k++) {
-            System.out.print(next[k] + " ");
+    private static String nextToString(int[] next) {
+        StringBuilder s = new StringBuilder();
+        s.append("next[] is : ");
+        for (int k = 0; k < next.length; k++) {
+            s.append(next[k]);
+            s.append(" ");
         }
+        return s.toString();
+    }
 
-        while (i < slen && j < plen) {
-
-            if (s.charAt(i) == pattern.charAt(j)) {
+    private static int kmp(String s, String p) {
+        int i = 0, j = 0;
+        int[] next = getNext(p);
+        System.out.println(nextToString(next));
+        while (i < s.length() && j < p.length()) {
+            if (j == -1 || s.charAt(i) == p.charAt(j)) {
                 i++;
                 j++;
             } else {
-                if (next[j] == -1) {
-                    i++;
-                    j = 0;
-                } else {
-                    j = next[j];
-                }
-
+                j = next[j];
             }
-
-            if (j == plen) {
-                return i - j;
-            }
+        }
+        if (j >= p.length()) {
+            return i - j + 1;
         }
         return -1;
     }
@@ -90,6 +100,10 @@ public class KMP {
     public static void main(String[] args) {
         String str = "abababdafdasabcfdfeaba";
         String pattern = "abc";
+
+        System.out.println(str);
+        System.out.println(pattern);
+
         System.out.println(kmp(str, pattern));
     }
 }

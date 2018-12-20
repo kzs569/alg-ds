@@ -49,10 +49,6 @@ public class MatrixGraph<T extends Comparable <? super T>> implements Graph {
         return 0;
     }
 
-    public void print() {
-
-    }
-
     public void dfs() {
 
     }

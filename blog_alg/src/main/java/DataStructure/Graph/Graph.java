@@ -2,25 +2,19 @@ package DataStructure.Graph;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Stack;
 
-public interface Graph {
+public interface Graph{
 
     enum GraphType{
         DIRECTED,
         UNDIRECTED
     }
 
+    void addVertex(Vertex _v);
+
     int verticsNum();
+
     int edgesNum();
 
-    float INFINITY = 9999;
-
-    void print();
-
-    void dfs();
-    void bfs();
-//    void dijkstra(int s,int t);
-//    void floyd();
-//    void prim();
-//    void kruskal();
 }
